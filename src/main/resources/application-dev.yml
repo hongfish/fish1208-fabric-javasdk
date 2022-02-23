@@ -1,0 +1,103 @@
+
+fabric-config:
+  league:
+    name: fish1208
+  channel:
+    name: mychannel
+    block-listener: true
+
+  orderers:
+    - name: orderer.example.com
+      location: 192.168.229.158:7050
+      domain-name: example.com
+      server-crt-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+      client-cert-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.crt
+      client-key-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.key
+    - name: orderer2.example.com
+      location: 192.168.229.158:8050
+      domain-name: example.com
+      server-crt-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
+      client-cert-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.crt
+      client-key-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.key
+    - name: orderer3.example.com
+      location: 192.168.229.158:9050
+      domain-name: example.com
+      server-crt-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
+      client-cert-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.crt
+      client-key-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.key
+    - name: orderer4.example.com
+      location: 192.168.229.158:10050
+      domain-name: example.com
+      server-crt-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
+      client-cert-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.crt
+      client-key-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.key
+    - name: orderer5.example.com
+      location: 192.168.229.158:11050
+      domain-name: example.com
+      server-crt-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/orderers/orderer5.example.com/tls/server.crt
+      client-cert-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.crt
+      client-key-path: classpath:fabric-${spring.profiles.active}/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/client.key
+
+  chaincode:
+    name: mycc
+    source: opt/gopath
+    path: github.com/hyperledger/fabric/fish1208/chaincode/go/chaincode_example02/
+    version: 1.0
+    proposal-waittime: 60000
+    event-listener: true
+    callback-location:
+    events: saveEvent
+
+  org1:
+    id: 1
+    tls: true
+    msp-id: Org1MSP
+    domain-name: org1.example.com
+
+  peers1:
+    - name: peer0.org1.example.com
+      location: 192.168.229.158:7051
+      eventhub-location:
+      org-id: 1
+      server-crt-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt
+      client-cert-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.crt
+      client-key-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.key
+    - name: peer1.org1.example.com
+      location: 192.168.229.158:8051
+      eventhub-location:
+      org-id: 1
+      server-crt-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/server.crt
+      client-cert-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.crt
+      client-key-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.key
+
+  org2:
+    id: 2
+    tls: true
+    msp-id: Org2MSP
+    domain-name: org2.example.com
+
+  peers2:
+    - name: peer0.org2.example.com
+      location: 192.168.229.158:9051
+      eventhub-location:
+      org-id: 2
+      server-crt-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/server.crt
+      client-cert-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/tls/client.crt
+      client-key-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/tls/client.key
+    - name: peer1.org2.example.com
+      location: 192.168.229.158:10051
+      eventhub-location:
+      org-id: 2
+      server-crt-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/server.crt
+      client-cert-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/tls/client.crt
+      client-key-path: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/tls/client.key
+
+  ca1:
+    name: ca1
+    sk: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/2baeb6cb4e8c61adff28a13e67f7c5c644963b3ed262061394d21e710b3b60d9_sk
+    certificate: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
+
+  ca2:
+    name: ca2
+    sk: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/b27838bd5f86c452b062c0eded0b5e8a187541de3bc4bb72fc2c2f1db554256f_sk
+    certificate: classpath:fabric-${spring.profiles.active}/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem

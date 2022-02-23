@@ -1,0 +1,6 @@
+server:
+  port: 7024
+
+spring:
+  profiles:
+    active: dev
