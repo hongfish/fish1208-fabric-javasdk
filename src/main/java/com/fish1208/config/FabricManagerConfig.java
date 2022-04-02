@@ -20,7 +20,7 @@ public class FabricManagerConfig {
     private League league;
     private Channel channel;
     private List<Orderer> orderers = new ArrayList<>();
-    private Chaincode chaincode;
+    private List<Chaincode> chaincodes;
     private Org org1;
     private List<Peer> peers1 = new ArrayList<>();
     private CA ca1;
@@ -34,7 +34,7 @@ public class FabricManagerConfig {
         log.debug("league = {}", JSON.toJSONString(league));
         log.debug("channel = {}", JSON.toJSONString(channel));
         log.debug("orderers = {}", JSON.toJSONString(orderers));
-        log.debug("chaincode = {}", JSON.toJSONString(chaincode));
+        log.debug("chaincode = {}", JSON.toJSONString(chaincodes));
         log.debug("peers1 = {}", JSON.toJSONString(peers1));
         log.debug("ca1 = {}", JSON.toJSONString(ca1));
         log.debug("org2 = {}", JSON.toJSONString(org2));
@@ -45,7 +45,7 @@ public class FabricManagerConfig {
         config.setLeague(league);
         config.setChannel(channel);
         config.setOrderers(orderers);
-        config.setChaincode(chaincode);
+        config.setChaincodes(chaincodes);
         config.setOrg1(org1);
         config.setPeers1(peers1);
         config.setCa1(ca1);

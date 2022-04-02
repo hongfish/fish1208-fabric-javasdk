@@ -22,7 +22,7 @@ public class FabricConfig {
 	private League league;
 	private Channel channel;
 	private List<Orderer> orderers = new ArrayList<>();
-	private Chaincode chaincode;
+	private List<Chaincode> chaincodes;
 	private Org org1;
 	private List<Peer> peers1 = new ArrayList<>();
 	private CA ca1;

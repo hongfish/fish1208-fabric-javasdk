@@ -38,7 +38,7 @@ public abstract class BaseTest {
         FabricHelper fabricHelper = FabricHelper.obtain();
         FabricManager fabricManager;
 //        fabricManager = fabricHelper.createFabricManager(config.getLeague(),config.getOrg1(),config.getChannel(),config.getChaincode(),config.getOrderers(),config.getPeers1(),config.getCa1(),config.getLeague().getName());
-        fabricManager = fabricHelper.createFabricManager(config.getLeague(),config.getOrg2(),config.getChannel(),config.getChaincode(),config.getOrderers(),config.getPeers2(),config.getCa2(),config.getLeague().getName());
+        fabricManager = fabricHelper.createFabricManager(config.getLeague(),config.getOrg2(),config.getChannel(),config.getChaincodes().get(0),config.getOrderers(),config.getPeers2(),config.getCa2(),config.getLeague().getName());
 
         return fabricManager;
     }
